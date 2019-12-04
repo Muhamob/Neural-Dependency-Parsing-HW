@@ -10,3 +10,8 @@ WORKDIR ./self-attentive-parser
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 RUN pip install benepar[cpu]
+
+WORKDIR ../
+RUN mkdir data
+ADD data/ data/
+RUN ls -la data/ 
