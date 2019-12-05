@@ -14,4 +14,9 @@ RUN pip install benepar[cpu]
 WORKDIR ../
 RUN mkdir data
 ADD data/ data/
-RUN ls -la data/ 
+RUN ls -la data/
+
+RUN pip install jupyter
+COPY run_jupyter.sh ./
+VOLUME ./
+EXPOSE 8888
