@@ -1,4 +1,4 @@
-FROM python:3.7.5-buster
+FROM python:3.6.9-buster
 
 WORKDIR /home
 
@@ -20,9 +20,9 @@ WORKDIR ../
 
 # Install pytorch in kitaev environment
 RUN apt install -y wget
-RUN wget https://download.pytorch.org/whl/cpu/torch-1.3.1%2Bcpu-cp37-cp37m-linux_x86_64.whl
-RUN pip install torch-1.3.1+cpu-cp37-cp37m-linux_x86_64.whl
-RUN rm torch-1.3.1+cpu-cp37-cp37m-linux_x86_64.whl
+RUN wget https://download.pytorch.org/whl/cpu/torch-1.1.0-cp36-cp36m-linux_x86_64.whl
+RUN pip install torch-1.1.0-cp36-cp36m-linux_x86_64.whl
+RUN rm torch-1.1.0-cp36-cp36m-linux_x86_64.whl
 RUN pip install numpy
 RUN pip install -r requirements.txt
 

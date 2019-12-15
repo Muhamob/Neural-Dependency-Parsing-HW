@@ -3,3 +3,4 @@
 **/*.swp
 models/
 docker/data
+data/
