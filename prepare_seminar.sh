@@ -18,6 +18,7 @@ java -cp stanford-parser_3.3.0.jar edu.stanford.nlp.trees.EnglishGrammaticalStru
 java -cp stanford-parser_3.3.0.jar edu.stanford.nlp.trees.EnglishGrammaticalStructure -basic -keepPunct -conllx -treeFile test_con.txt > test_dep.txt
 echo Finised converting constituency to dependency
 
+echo Move data to ./data/ directory
 mkdir -p data/
 
 mv train_dep.txt data/
@@ -27,14 +28,20 @@ mv train_con.txt data/
 mv test_con.txt data/
 mv dev_con.txt data/
 
+echo Downloading models...
 mkdir -p models/
 
+echo Download glove model for dozat parser ...
 wget https://github.com/allenai/spv2/raw/master/model/glove.6B.100d.txt.gz
+echo Extracting model ...
 gzip -d glove.6B.100d.txt.gz
 mv glove.6B.100d.txt models/
+echo Finished preparing glove model
 
+echo Download pytorch model for Kitaev parser ...
 wget https://github.com/nikitakit/self-attentive-parser/releases/download/models/en_charlstm_dev.93.61.pt
 mv en_charlstm_dev.93.61.pt models/
+echo Downloaded
 
 
 # https://lindat.mff.cuni.cz/repository/xmlui/handle/11234/1-2837?show=full
